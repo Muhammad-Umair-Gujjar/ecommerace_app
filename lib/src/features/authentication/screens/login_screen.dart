@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../controller/login_controller.dart';
+
 import '../../../utils/constants/app_colors.dart';
 import '../../../widgets/custom_text_field.dart';
 import '../../../widgets/custom_button.dart';
@@ -14,10 +15,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  bool rememberMe = false;
-  bool obscurePassword = true;
+  final LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -46,56 +44,64 @@ class _LoginScreenState extends State<LoginScreen> {
               CustomTextField(
                 hintText: 'Email',
                 prefixIcon: Icons.send,
-                controller: emailController,
+                controller: controller.emailController,
               ),
               const SizedBox(height: 18),
-              CustomTextField(
-                hintText: 'Password',
-                prefixIcon: Icons.lock_outline,
-                obscureText: obscurePassword,
-                controller: passwordController,
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    obscurePassword ? Icons.visibility_off : Icons.visibility,
-                    color: AppColors.iconColor,
+              Obx(
+                () => CustomTextField(
+                  hintText: 'Password',
+                  prefixIcon: Icons.lock_outline,
+                  obscureText: controller.obscurePassword.value,
+                  controller: controller.passwordController,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      controller.obscurePassword.value
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: AppColors.iconColor,
+                    ),
+                    onPressed: controller.toggleObscurePassword,
                   ),
-                  onPressed: () {
-                    setState(() {
-                      obscurePassword = !obscurePassword;
-                    });
-                  },
                 ),
               ),
               const SizedBox(height: 8),
-              Row(
-                children: [
-                  Checkbox(
-                    value: rememberMe,
-                    activeColor: AppColors.primary,
-                    onChanged: (value) {
-                      setState(() {
-                        rememberMe = value ?? false;
-                      });
-                    },
-                  ),
-                  const Text('Remember Me'),
-                  const Spacer(),
-                  TextButton(
-                    onPressed: () {
-                      Get.toNamed('/forgot-password');
-                    },
-                    child: const Text(
-                      'Forget Password?',
-                      style: TextStyle(
-                        color: AppColors.primary,
-                        fontWeight: FontWeight.w500,
+              Obx(
+                () => Row(
+                  children: [
+                    Checkbox(
+                      value: controller.rememberMe.value,
+                      activeColor: AppColors.primary,
+                      onChanged: controller.toggleRememberMe,
+                    ),
+                    const Text('Remember Me'),
+                    const Spacer(),
+                    TextButton(
+                      onPressed: () {
+                        Get.toNamed('/forgot-password');
+                      },
+                      child: const Text(
+                        'Forget Password?',
+                        style: TextStyle(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(height: 12),
-              CustomButton(text: 'Sign In', onPressed: () {}, isPrimary: true),
+              Obx(
+                () => CustomButton(
+                  text: controller.isLoading.value
+                      ? 'Signing In...'
+                      : 'Sign In',
+                  onPressed: controller.isLoading.value
+                      ? () {}
+                      : controller.login,
+                  isPrimary: true,
+                ),
+              ),
               const SizedBox(height: 12),
               CustomButton(
                 text: 'Create Account',

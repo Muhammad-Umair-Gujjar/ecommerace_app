@@ -1,3 +1,4 @@
+import '../../../utils/constants/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../utils/constants/app_colors.dart';
@@ -20,7 +21,7 @@ class SocialButtonsRow extends StatelessWidget {
           ),
           child: Center(
             child: SvgPicture.asset(
-              'assets/icons/icons_google.svg',
+              AppImages.googleIcon,
               width: 24,
               height: 24,
             ),

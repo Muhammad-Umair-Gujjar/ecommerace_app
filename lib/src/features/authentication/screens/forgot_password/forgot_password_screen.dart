@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../controller/forgot_password_controller.dart';
 import '../../../../utils/constants/app_colors.dart';
 import '../../../../widgets/custom_text_field.dart';
 import '../../../../widgets/custom_button.dart';
@@ -12,7 +13,9 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  final TextEditingController emailController = TextEditingController();
+  final ForgotPasswordController controller = Get.put(
+    ForgotPasswordController(),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -48,15 +51,17 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             CustomTextField(
               hintText: 'Email',
               prefixIcon: Icons.send,
-              controller: emailController,
+              controller: controller.emailController,
             ),
             const SizedBox(height: 24),
-            CustomButton(
-              text: 'Submit',
-              onPressed: () {
-                Get.toNamed('/verify-email');
-              },
-              isPrimary: true,
+            Obx(
+              () => CustomButton(
+                text: controller.isLoading.value ? 'Submitting...' : 'Submit',
+                onPressed: controller.isLoading.value
+                    ? () {}
+                    : controller.submit,
+                isPrimary: true,
+              ),
             ),
           ],
         ),

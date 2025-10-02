@@ -1,3 +1,4 @@
+import '../../../../utils/constants/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../widgets/custom_button.dart';
@@ -17,7 +18,7 @@ class AccountSuccessScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/acc_successful_create.png',
+                AppImages.accountSuccess,
                 height: 180,
                 fit: BoxFit.contain,
               ),

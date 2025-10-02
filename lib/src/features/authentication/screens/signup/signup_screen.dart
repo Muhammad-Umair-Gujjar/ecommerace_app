@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../controller/signup_controller.dart';
+import 'package:get/get.dart';
 import '../../../../utils/constants/app_colors.dart';
 import '../../../../widgets/custom_text_field.dart';
 import '../../../../widgets/custom_button.dart';
@@ -13,12 +15,7 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  bool agreeToTerms = false;
+  final SignupController controller = Get.put(SignupController());
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: CustomTextField(
                     hintText: 'First Name',
                     prefixIcon: Icons.person_outline,
-                    controller: firstNameController,
+                    controller: controller.firstNameController,
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -60,7 +57,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: CustomTextField(
                     hintText: 'Last Name',
                     prefixIcon: Icons.person_outline,
-                    controller: lastNameController,
+                    controller: controller.lastNameController,
                   ),
                 ),
               ],
@@ -69,64 +66,66 @@ class _SignupScreenState extends State<SignupScreen> {
             CustomTextField(
               hintText: 'Email',
               prefixIcon: Icons.send,
-              controller: emailController,
+              controller: controller.emailController,
             ),
             const SizedBox(height: 12),
             CustomTextField(
               hintText: 'Phone Number',
               prefixIcon: Icons.phone,
-              controller: phoneController,
+              controller: controller.phoneController,
             ),
             const SizedBox(height: 12),
             CustomTextField(
               hintText: 'Password',
               prefixIcon: Icons.lock_outline,
-              controller: passwordController,
+              controller: controller.passwordController,
               obscureText: true,
             ),
             const SizedBox(height: 8),
-            Row(
-              children: [
-                Checkbox(
-                  value: agreeToTerms,
-                  activeColor: AppColors.primary,
-                  onChanged: (value) {
-                    setState(() {
-                      agreeToTerms = value ?? false;
-                    });
-                  },
-                ),
-                const Text('I agree to '),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Text(
-                    'Privacy Policy',
-                    style: TextStyle(
-                      color: AppColors.primary,
-                      decoration: TextDecoration.underline,
+            Obx(
+              () => Row(
+                children: [
+                  Checkbox(
+                    value: controller.agreeToTerms.value,
+                    activeColor: AppColors.primary,
+                    onChanged: controller.toggleAgreeToTerms,
+                  ),
+                  const Text('I agree to '),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      'Privacy Policy',
+                      style: TextStyle(
+                        color: AppColors.primary,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
-                ),
-                const Text(' and '),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Text(
-                    'Terms of use',
-                    style: TextStyle(
-                      color: AppColors.primary,
-                      decoration: TextDecoration.underline,
+                  const Text(' and '),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      'Terms of use',
+                      style: TextStyle(
+                        color: AppColors.primary,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             const SizedBox(height: 16),
-            CustomButton(
-              text: 'Create Account',
-              onPressed: () {
-                Get.toNamed('/account-success');
-              },
-              isPrimary: true,
+            Obx(
+              () => CustomButton(
+                text: controller.isLoading.value
+                    ? 'Creating...'
+                    : 'Create Account',
+                onPressed: controller.isLoading.value
+                    ? () {}
+                    : controller.signup,
+                isPrimary: true,
+              ),
             ),
             const SizedBox(height: 24),
             Row(

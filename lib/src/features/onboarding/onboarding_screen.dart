@@ -64,8 +64,7 @@ class OnboardingScreen extends StatelessWidget {
                   final page = onboardingPages[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 16,
+                      horizontal: 20,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
