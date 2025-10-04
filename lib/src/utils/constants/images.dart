@@ -12,7 +12,7 @@ class AppImages {
   static const String onboarding3 = 'assets/images/onboarding/onboarding3.png';
 
   // Logo
-  static const String blackAppLogo = 'assets/logo/black_app_logo 1.svg';
+  static const String blackAppLogo = 'assets/logo/black_app_logo.svg';
 
   // Account/Email Success
   static const String accountSuccess =
@@ -21,4 +21,20 @@ class AppImages {
 
   // Icons
   static const String googleIcon = 'assets/icons/icons_google.svg';
+
+    // Banners
+  static const String homeBanner1 = 'assets/banners/banner_1.jpg';
+  static const String homeBanner2 = 'assets/banners/banner_2.jpg';
+  static const String homeBanner3 = 'assets/banners/banner_3.jpg';
+  static const String homeBanner4 = 'assets/banners/banner_4.jpg';
+  static const String homeBanner5 = 'assets/banners/banner_5.jpg';
+
+
+  // -----[Products]-----
+  // 1
+  static const String productImage1 = 'assets/products/product 1.png';
+  // 2
+  static const String productImage2 = 'assets/products/product 2.png';
+  // 3
+  static const String productImage3 = 'assets/products/product 3.png';
 }

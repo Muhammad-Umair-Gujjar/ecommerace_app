@@ -14,18 +14,18 @@ class OnboardingPageData {
 
 const onboardingPages = [
   OnboardingPageData(
-    imagePath: AppImages.onboarding1,
+    imagePath: AppImages.onboarding1Animation,
     title: 'Welcome to UP Store',
     subtitle: 'Your one-stop destination for effortless and enjoyable shopping',
   ),
   OnboardingPageData(
-    imagePath: AppImages.onboarding2,
+    imagePath: AppImages.onboarding2Animation,
     title: 'Shop Everything You Love!',
     subtitle:
         'Discover top-quality products at the best prices\nwith a seamless shopping experience',
   ),
   OnboardingPageData(
-    imagePath: AppImages.onboarding3,
+    imagePath: AppImages.onboarding3Animation,
     title: 'Fast & Reliable Delivery!',
     subtitle:
         'Get your favorite items delivered to your doorstep,\nanytime, anywhere',

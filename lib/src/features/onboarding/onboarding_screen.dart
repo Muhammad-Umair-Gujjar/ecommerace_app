@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:lottie/lottie.dart';
+import 'package:lottie/lottie.dart';
+import 'package:lottie/lottie.dart';
 import '../../utils/constants/images.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/onboarding_progress_indicator.dart';
@@ -63,15 +64,13 @@ class OnboardingScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final page = onboardingPages[index];
                   return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Image.asset(page.imagePath, height: 220),
-                        const SizedBox(height: 32),
+                        Lottie.asset(page.imagePath, height: 240),
+                        const SizedBox(height: 15),
                         Text(
                           page.title,
                           style: const TextStyle(

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import '../../../routing/route_names.dart';
 
 class LoginController extends GetxController {
   final emailController = TextEditingController();
@@ -23,6 +24,7 @@ class LoginController extends GetxController {
     isLoading.value = false;
     // Add your login logic here
     // Example: Get.snackbar('Login', 'Login successful!');
+    Get.offAllNamed(RouteNames.home);
   }
 
   @override
