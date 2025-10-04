@@ -6,6 +6,9 @@ class AppImages {
   static const String onboarding3Animation = 'assets/animations/delivery.json';
   static const String loadingAnimation = 'assets/animations/loading.json';
 
+  //cart
+  static const String cart = "assets\icons\cart.png";
+
   // Onboarding Images
   static const String onboarding1 = 'assets/images/onboarding/onboarding1.png';
   static const String onboarding2 = 'assets/images/onboarding/onboarding2.png';
@@ -22,13 +25,12 @@ class AppImages {
   // Icons
   static const String googleIcon = 'assets/icons/icons_google.svg';
 
-    // Banners
+  // Banners
   static const String homeBanner1 = 'assets/banners/banner_1.jpg';
   static const String homeBanner2 = 'assets/banners/banner_2.jpg';
   static const String homeBanner3 = 'assets/banners/banner_3.jpg';
   static const String homeBanner4 = 'assets/banners/banner_4.jpg';
   static const String homeBanner5 = 'assets/banners/banner_5.jpg';
-
 
   // -----[Products]-----
   // 1
@@ -37,4 +39,21 @@ class AppImages {
   static const String productImage2 = 'assets/products/product 2.png';
   // 3
   static const String productImage3 = 'assets/products/product 3.png';
+  // 4
+  static const String productImage4a = 'assets/products/product 4.png';
+  static const String productImage4b = 'assets/products/product 4 1.png';
+  static const String productImage4c = 'assets/products/product 4 2.png';
+  static const String productImage4d = 'assets/products/product 4 3.png';
+  static const String productImage4e = 'assets/products/product 4 4.png';
+  // 5
+  static const String productImage5 = 'assets/products/product 5.png';
+  // 6
+  static const String productImage6 = 'assets/products/product 6.png';
+  // 7
+  static const String productImage7 = 'assets/products/product 7.png';
+  // 8
+  static const String productImage8 = 'assets/products/product 8.png';
+  // 9
+  static const String productImage9 = 'assets/products/product 9.png';
+  // 10
 }

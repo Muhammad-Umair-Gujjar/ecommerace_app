@@ -1,3 +1,4 @@
+import 'package:ecomerace_app/src/features/widgets/custom_cart_icon.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ecomerace_app/src/utils/constants/app_colors.dart';
@@ -68,7 +69,7 @@ class HomeHeader extends StatelessWidget {
                         ),
                         const SizedBox(height: 4),
                         const Text(
-                          'Unknown Pro',
+                          'Umair Gujjar',
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -77,36 +78,40 @@ class HomeHeader extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Stack(
-                      children: [
-                        IconButton(
-                          icon: const Icon(
-                            Icons.shopping_cart_outlined,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                        ),
-                        Positioned(
-                          right: 8,
-                          top: 8,
-                          child: Container(
-                            padding: const EdgeInsets.all(4),
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Text(
-                              '2',
-                              style: TextStyle(
-                                color: Color(0xFF1565C0),
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    CustomCartIcon(
+                      itemCount: 2,
+                      onTap: () {}, // Your cart action
+                    )
+                    // Stack(
+                    //   children: [
+                    //     IconButton(
+                    //       icon: const Icon(
+                    //         Icons.shopping_cart_outlined,
+                    //         color: Colors.white,
+                    //       ),
+                    //       onPressed: () {},
+                    //     ),
+                    //     Positioned(
+                    //       right: 8,
+                    //       top: 8,
+                    //       child: Container(
+                    //         padding: const EdgeInsets.all(4),
+                    //         decoration: const BoxDecoration(
+                    //           color: Colors.white,
+                    //           shape: BoxShape.circle,
+                    //         ),
+                    //         child: const Text(
+                    //           '2',
+                    //           style: TextStyle(
+                    //             color: Color(0xFF1565C0),
+                    //             fontSize: 10,
+                    //             fontWeight: FontWeight.bold,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
                 const SizedBox(height: 24),
