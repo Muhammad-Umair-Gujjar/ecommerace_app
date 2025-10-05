@@ -3,7 +3,7 @@ import 'package:ecomerace_app/src/features/main/widgets/product_grid_view.dart';
 import 'package:ecomerace_app/src/utils/constants/app_colors.dart';
 import 'package:ecomerace_app/src/utils/constants/images.dart';
 import 'package:ecomerace_app/src/utils/helper_function/helper.dart';
-import 'package:ecomerace_app/src/widgets/section_heading.dart';
+import 'package:ecomerace_app/src/features/widgets/section_heading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

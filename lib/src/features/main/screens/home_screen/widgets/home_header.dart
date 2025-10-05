@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:ecomerace_app/src/utils/constants/app_colors.dart';
 import 'package:ecomerace_app/src/utils/helper_function/helper.dart';
-import '_header_clipper.dart';
+import '../../../../widgets/_header_clipper.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});

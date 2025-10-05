@@ -11,7 +11,7 @@ class CustomCartIcon extends StatelessWidget {
     Key? key,
     this.itemCount = 0,
     this.onTap,
-    this.size = 32,
+    this.size = 50,
     this.badgeSize = 18,
   }) : super(key: key);
 
@@ -31,8 +31,8 @@ class CustomCartIcon extends StatelessWidget {
         ),
         if (itemCount > 0)
           Positioned(
-            right: 8,
-            top: 8,
+            right: 14,
+            top: 12,
             child: Container(
               width: badgeSize,
               height: badgeSize,

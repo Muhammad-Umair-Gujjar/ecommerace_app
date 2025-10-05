@@ -7,7 +7,7 @@ class AppImages {
   static const String loadingAnimation = 'assets/animations/loading.json';
 
   //cart
-  static const String cart = "assets\icons\cart.png";
+  static const String cart = "assets/icons/cart.png";
 
   // Onboarding Images
   static const String onboarding1 = 'assets/images/onboarding/onboarding1.png';
@@ -56,4 +56,20 @@ class AppImages {
   // 9
   static const String productImage9 = 'assets/products/product 9.png';
   // 10
+
+
+   // Brands
+  static const String adidasLogo = 'assets/brands/adidas.jpg';
+  static const String appleLogo = 'assets/brands/apple.jpg';
+  static const String bataLogo = 'assets/brands/bata.png';
+  static const String bloodyLogo = 'assets/brands/bloody.png';
+  static const String breakoutLogo = 'assets/brands/breakout.jpg';
+  static const String dariMoochLogo = 'assets/brands/dari_mooch.png';
+  static const String hpLogo = 'assets/brands/hp.jpg';
+  static const String interWoodLogo = 'assets/brands/interwood.jpeg';
+  static const String jLogo = 'assets/brands/j..png';
+  static const String nDURELogo = 'assets/brands/ndure.png';
+  static const String nikeLogo = 'assets/brands/nike.png';
+  static const String northStarLogo = 'assets/brands/north_star.jpg';
+  static const String poloLogo = 'assets/brands/polo.png';
 }

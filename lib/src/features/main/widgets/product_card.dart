@@ -35,7 +35,7 @@ class ProductCard extends StatelessWidget {
       onTap: onTap,
       child: RoundedContainer(
         backgroundColor: const Color(0xFFF9F9F9),
-        width: 180,
+        // width removed to let GridView control sizing
         radius: 20,
         child: Column(
           children: [
@@ -70,7 +70,9 @@ class ProductCard extends StatelessWidget {
                           GestureDetector(
                             onTap: onFavoriteTap,
                             child: Icon(
-                              isFavorite ? Icons.favorite : Icons.favorite_border,
+                              isFavorite
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
                               color: isFavorite ? Colors.red : Colors.black45,
                               size: 24,
                             ),
@@ -100,25 +102,29 @@ class ProductCard extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 4),
-                          const Icon(Icons.verified, color: Colors.blue, size: 18),
+                          const Icon(
+                            Icons.verified,
+                            color: Colors.blue,
+                            size: 18,
+                          ),
                         ],
                       ),
-                    // space for the add button
+                      // space for the add button
                     ],
                   ),
                 ),
               ],
             ),
-          Row(
+            Row(
               children: [
                 SizedBox(width: 12),
-                 Text(
-                    '24${minPrice.toStringAsFixed(0)} - 24${maxPrice.toStringAsFixed(0)}',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                Text(
+                  '24${minPrice.toStringAsFixed(0)} - 24${maxPrice.toStringAsFixed(0)}',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
                   ),
+                ),
                 Spacer(),
                 Positioned(
                   right: 0,
@@ -135,13 +141,16 @@ class ProductCard extends StatelessWidget {
                           bottomRight: Radius.circular(20),
                         ),
                       ),
-                      child: const Icon(Icons.add, color: Colors.white, size: 26),
+                      child: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 26,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-        
           ],
         ),
       ),
