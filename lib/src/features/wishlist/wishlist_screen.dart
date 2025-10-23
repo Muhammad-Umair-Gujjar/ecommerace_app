@@ -53,77 +53,86 @@ class WishlistScreen extends StatelessWidget {
         elevation: 0,
         title: const Text(
           'Wishlist',
-          style: TextStyle(color: Colors.black,letterSpacing: 1, fontWeight: FontWeight.w700),
+          style: TextStyle(
+            color: Colors.black,
+            letterSpacing: 1,
+            fontWeight: FontWeight.w700,
+          ),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.add, color: Colors.black,),
+            icon: const Icon(Icons.add, color: Colors.black),
             onPressed: () {},
           ),
         ],
         automaticallyImplyLeading: false,
       ),
-      backgroundColor: Colors.white,//const Color(0xFFF9F9F9),
+      backgroundColor: Colors.white, //const Color(0xFFF9F9F9),
       body: SingleChildScrollView(
         child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: ProductGridView(
-                  children: [
-                    ProductCard(
-                      imageUrl: AppImages.productImage1,
-                      name: 'iPhone 11 64GB',
-                      brand: 'Apple',
-                      minPrice: 3,
-                      maxPrice: 5,
-                      discount: '49%',
-                    ),
-                    ProductCard(
-                      imageUrl: AppImages.productImage2,
-                      name: 'iPhone 11 64GB',
-                      brand: 'Apple',
-                      minPrice: 3,
-                      maxPrice: 5,
-                      discount: '49%',
-                    ),
-                    // Add more ProductCard widgets as needed
-                     ProductCard(
-                      imageUrl: AppImages.productImage3,
-                      name: 'iPhone 11 64GB',
-                      brand: 'Apple',
-                      minPrice: 3,
-                      maxPrice: 5,
-                      discount: '49%',
-                    ),
-                    ProductCard(
-                      imageUrl: AppImages.productImage7,
-                      name: 'iPhone 11 64GB',
-                      brand: 'Apple',
-                      minPrice: 3,
-                      maxPrice: 5,
-                      discount: '49%',
-                    ),
-                      ProductCard(
-                      imageUrl: AppImages.productImage5,
-                      name: 'iPhone 11 64GB',
-                      brand: 'Apple',
-                      minPrice: 3,
-                      maxPrice: 5,
-                      discount: '49%',
-                    ),
-                    ProductCard(
-                      imageUrl: AppImages.productImage6,
-                      name: 'iPhone 11 64GB',
-                      brand: 'Apple',
-                      minPrice: 3,
-                      maxPrice: 5,
-                      discount: '49%',
-                    ),
-                
-                  ],
-                ),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: ProductGridView(
+            children: [
+              ProductCard(
+                imageUrl: AppImages.productImage1,
+                name: 'Apple iPhone 11',
+                brand: 'Apple',
+                minPrice: 399,
+                maxPrice: 599,
+                discount: '40%',
+                isFavorite: true,
               ),
+              ProductCard(
+                imageUrl: AppImages.productImage2,
+                name: 'Blue Shoes of Nike',
+                brand: 'Nike',
+                minPrice: 399,
+                maxPrice: 599,
+                discount: '40%',
+                isFavorite: true,
+              ),
+              // Add more ProductCard widgets as needed
+              ProductCard(
+                imageUrl: AppImages.productImage3,
+                name: 'Apple iPhone 11',
+                brand: 'Apple',
+                minPrice: 399,
+                maxPrice: 599,
+                discount: '40%',
+                isFavorite: true,
+              ),
+              ProductCard(
+                imageUrl: AppImages.productImage7,
+                name: 'Blue Shoes of Nike',
+                brand: 'Nike',
+                minPrice: 399,
+                maxPrice: 599,
+                discount: '40%',
+                isFavorite: true,
+              ),
+              ProductCard(
+                imageUrl: AppImages.productImage5,
+                name: 'Blue Shoes of Nike',
+                brand: 'Nike',
+                minPrice: 399,
+                maxPrice: 599,
+                discount: '40%',
+                isFavorite: true,
+              ),
+              ProductCard(
+                imageUrl: AppImages.productImage6,
+                name: 'Blue Shoes of Nike',
+                brand: 'Nike',
+                minPrice: 399,
+                maxPrice: 599,
+                discount: '40%',
+                isFavorite: true,
+              ),
+            ],
+          ),
+        ),
       ),
-        
+
       // Padding(
       //   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       //   child: ProductGridView(
@@ -145,7 +154,6 @@ class WishlistScreen extends StatelessWidget {
       //         .toList(),
       //   ),
       // ),
-    
     );
   }
 }

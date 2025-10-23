@@ -10,4 +10,12 @@ class RouteNames {
   static const String store = '/store';
   static const String wishlist = '/wishlist';
   static const String profile = '/profile';
+  static const String editProfile = '/edit-profile';
+  static const String changeName = '/change-name';
+  static const String addresses = '/addresses';
+  static const String addAddress = '/add-address';
+  static const String orders = '/orders';
+  static const String productDetail = '/product-detail';
+  static const String brands = '/brands';
+  static const String brandProducts = '/brand-products';
 }

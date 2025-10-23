@@ -1,7 +1,10 @@
+import 'package:ecomerace_app/src/features/widgets/brand_info.dart';
 import 'package:ecomerace_app/src/widgets/rounded_container.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ecomerace_app/src/features/widgets/brand_name_row.dart';
 import 'package:ecomerace_app/src/utils/constants/images.dart';
+import 'package:ecomerace_app/src/routing/route_names.dart';
 
 class BrandList extends StatelessWidget {
   const BrandList({Key? key}) : super(key: key);
@@ -25,48 +28,38 @@ class BrandList extends StatelessWidget {
         separatorBuilder: (_, __) => const SizedBox(width: 12),
         itemBuilder: (context, index) {
           final brand = brands[index];
-          return RoundedContainer(
-            width: 160,
-            height: 70,
-            radius: 16,
-            backgroundColor: Colors.white,
-            showBorder: true,
-            borderColor: Colors.grey.shade300,
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-            child: Row(
-              children: [
-                Image.asset(
-                  brand['logo'] as String,
-                  width: 32,
-                  height: 32,
-                  fit: BoxFit.contain,
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      BrandNameRow(
-                        brand: brand['name'] as String,
-                        bold: true,
-                        showVerified: true,
-                        fontSize: 16,
-                        color: Colors.black,
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        '${brand['products']} products',
-                        style: const TextStyle(
-
-                          color: Colors.grey,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+          return GestureDetector(
+            onTap: () {
+              Get.toNamed(
+                RouteNames.brandProducts,
+                arguments: {
+                  'brandName': brand['name'],
+                  'brandLogo': brand['logo'],
+                  'productCount': brand['products'],
+                },
+              );
+            },
+            child: RoundedContainer(
+              width: 160,
+              height: 70,
+              radius: 16,
+              backgroundColor: Colors.white,
+              showBorder: true,
+              borderColor: Colors.grey.shade300,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              child: BrandInfo(
+                brandLogo: brand['logo'] as String,
+                brandName: brand['name'] as String,
+                productCount: brand['products'] as int,
+                showVerified: true,
+                bold: true,
+                fontSize: 16,
+                brandNameColor: Colors.black,
+                logoSize: 32,
+                padding: EdgeInsets.zero,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+              ),
             ),
           );
         },

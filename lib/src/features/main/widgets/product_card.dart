@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ecomerace_app/src/widgets/rounded_container.dart';
 import 'package:ecomerace_app/src/widgets/rounded_image.dart';
 import 'package:ecomerace_app/src/widgets/product_name_text.dart';
+import 'package:ecomerace_app/src/routing/route_names.dart';
 
 class ProductCard extends StatelessWidget {
   final String imageUrl;
@@ -29,10 +31,45 @@ class ProductCard extends StatelessWidget {
     this.onAddTap,
   }) : super(key: key);
 
+  void _navigateToProductDetail() {
+    Get.toNamed(
+      RouteNames.productDetail,
+      arguments: {
+        'productId': '${name.hashCode}', // Simple ID generation
+        'name': name,
+        'brand': brand,
+        'originalPrice': maxPrice,
+        'salePrice': minPrice,
+        'discount': discount,
+        'images': [imageUrl], // Add more images if available
+        'description':
+            'This is a product description of $brand brand $name. '
+            'There are more things that can be added but I\'m '
+            'keeping it simple for now. You can add more detailed '
+            'information about the product features, specifications, '
+            'and other relevant details here.',
+        'colors': name.toLowerCase().contains('iphone')
+            ? ['Black', 'White', 'Blue']
+            : null,
+        'sizes': name.toLowerCase().contains('iphone')
+            ? ['64 GB', '256 GB', '512 GB']
+            : name.toLowerCase().contains('shoe')
+            ? ['40', '41', '42', '43', '44']
+            : null,
+        'inStock': true,
+        'productType': name.toLowerCase().contains('iphone')
+            ? 'phone'
+            : name.toLowerCase().contains('shoe')
+            ? 'shoes'
+            : 'general',
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap ?? () => _navigateToProductDetail(),
       child: RoundedContainer(
         backgroundColor: const Color(0xFFF9F9F9),
         // width removed to let GridView control sizing
@@ -117,36 +154,28 @@ class ProductCard extends StatelessWidget {
             ),
             Row(
               children: [
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 Text(
-                  '24${minPrice.toStringAsFixed(0)} - 24${maxPrice.toStringAsFixed(0)}',
+                  '\$${minPrice.toStringAsFixed(0)} - \$${maxPrice.toStringAsFixed(0)}',
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),
                 ),
-                Spacer(),
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: GestureDetector(
-                    onTap: onAddTap,
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: const BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(18),
-                          bottomRight: Radius.circular(20),
-                        ),
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 26,
+                const Spacer(),
+                GestureDetector(
+                  onTap: onAddTap,
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(18),
+                        bottomRight: Radius.circular(20),
                       ),
                     ),
+                    child: const Icon(Icons.add, color: Colors.white, size: 26),
                   ),
                 ),
               ],

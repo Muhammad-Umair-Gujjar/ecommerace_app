@@ -37,7 +37,10 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: SectionHeading(title:'Popular Products', onViewAll: () {}),
+              child: SectionHeading(
+                title: 'Popular Products',
+                onViewAll: () {},
+              ),
             ),
             // Product Grid
             Padding(
@@ -46,42 +49,41 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   ProductCard(
                     imageUrl: AppImages.productImage1,
-                    name: 'iPhone 11 64GB',
+                    name: 'Apple iPhone 11',
                     brand: 'Apple',
-                    minPrice: 3,
-                    maxPrice: 5,
-                    discount: '49%',
+                    minPrice: 399,
+                    maxPrice: 599,
+                    discount: '40%',
                   ),
                   ProductCard(
                     imageUrl: AppImages.productImage2,
-                    name: 'iPhone 11 64GB',
-                    brand: 'Apple',
-                    minPrice: 3,
-                    maxPrice: 5,
-                    discount: '49%',
+                    name: 'Blue Shoes of Nike',
+                    brand: 'Nike',
+                    minPrice: 399,
+                    maxPrice: 599,
+                    discount: '40%',
                   ),
                   // Add more ProductCard widgets as needed
-                   ProductCard(
+                  ProductCard(
                     imageUrl: AppImages.productImage3,
-                    name: 'iPhone 11 64GB',
+                    name: 'Apple iPhone 11',
                     brand: 'Apple',
-                    minPrice: 3,
-                    maxPrice: 5,
-                    discount: '49%',
+                    minPrice: 399,
+                    maxPrice: 599,
+                    discount: '40%',
                   ),
                   ProductCard(
-                    imageUrl: AppImages.productImage2,
-                    name: 'iPhone 11 64GB',
-                    brand: 'Apple',
-                    minPrice: 3,
-                    maxPrice: 5,
-                    discount: '49%',
+                    imageUrl: AppImages.productImage7,
+                    name: 'Blue Shoes of Nike',
+                    brand: 'Nike',
+                    minPrice: 399,
+                    maxPrice: 599,
+                    discount: '40%',
                   ),
-              
                 ],
               ),
             ),
-        
+
             // Add more content below if needed
           ],
         ),
